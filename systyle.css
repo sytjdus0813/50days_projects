@@ -1,54 +1,114 @@
-@import url('https://fonts.googleapis.com/css2?family=BBH+Sans+Bartle&display=swap');
-        
-
-        * {
+@import url('https://fonts.google.com/share?selection.family=BBH+Sans+Bartle|Saira:ital,wght@0,100..900;1,100..900=swap');
+        *{
             box-sizing: border-box;
         }
-            
         body {
-            font-family: 'BBH Sans Bartle' , sans-serif;
+            background-color: #c2dc80;
+            font-family:'BBH Sans Bartle',sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height:100vh ;
+            height: 100vh;
             overflow: hidden;
-            margin: 0;
         }
-    
+        .click {
+            background-color:#D56989 ;
+            color: white;
+            font-family:'BBH Sans Bartle',sans-serif ;
+            border: 0;
+            border-radius: 3px;
+            font-size: 18px;
+            padding:13px 24px;
+            cursor:pointer;
+            position:fixed ;
+            top: 50px;
+            letter-spacing: 2px;
+            box-shadow: 0 3px white;
+            z-index: 100;
+        }
+        .click:focus {
+           outline: none;
+        }
+        .click:active {
+            box-shadow:none;
+            transform: translateY(2px);
+        }
+        .boxes {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            height: 500px; width: 500px;
+            position: relative;
+            transition: 0.4s ease;
+        }
+        .boxes.big {
+            width: 600px;
+            height: 600px;
+        }
+        .boxes.big .box {
+            transform: rotateZ(360deg);
+        }
+        .box{
+            background-image: url(https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExN3Vta3h4b3VwanZmM2dkcHZrdzRrdTgwbmxubW5tNmpsM281Nmh1diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/h863rDf2h0X7CXGCCv/giphy.gif);
+            background-repeat: no-repeat;
+            background-size: 500px 500px;
+            position: relative;
+            height: 125px;
+            width: 125px;
+            transition: 0.4s;
+        }
+        .box::after{
+            content: '';
+            background-color:#e8ffae;
+            position: absolute;
+            top: 8px;
+            right: -15px;
+            height: 100%;
+            width: 15px;
+            transform: skewY(45deg);
+        }
+        .box::before{
+            content: '';
+            background-color:#fff9fb;
+            position: absolute;
+            bottom: -15px;
+            left: 8px;
+            height: 15px;
+            width: 100%;
+            transform: skewX(45deg);
+        }
+
+            
 
 
-    /*
-    1. @import url ('') 
-       외부 CSS 리소스를 불러오는 문법. 위의 경우 구글폰트를 가져왔다.
-       @import 는 반드시 css 의 맨 윗줄에 있어야하기 때문에 아랫줄과는 간격을 둔다.
-       () 안에 display = swap 은, 폰트가 로딩될때 기본폰트를 먼저 보여주고 나중에 준 폰트로 바꾸라는 뜻.(화면 깜빡임 방지)
-    2. box-sizing 
-        크기를 계산하는 방식. width : 100 px 이라고 적었을 때, 기본값은 content의 사이즈임.
-        근데 box-sizing 을 하면 padding(여백), bording(테두리) 이 포함됨.
-        content-box 가 기본으로 설정되어있을 때 , width:100px 을 주면, 100px +padding+border의 값이 기에 100이 넘음.
-        반면, box-sizing 을 border-box;로 설정하면 다 합쳐서 100px 로 늘려주기 때문에 계산이 편리함.
-    3. * { box-sizing : border-box; }
-        *은 '모든 요소에 적용' 이리는 뜻!
-    4. font-family
-        글씨체를 지정하는 문법 앞에는 지정한 폰트를 쓰고, 그걸 못찾았을때는 뒤의 폰트로 해줘! 라고 지정할 수 있음
-    5. display : flex;
-        유연한 박스로 바꾸는 명령.
-        안에 있는 글씨나 박스를 쉽게 정렬할 수 있는 상태로 만듦.
-        flexbox로 만들면 안의 내용을 가로-세로로 마음대로 정렬 가능.
-    6. flex-direction:column;
-        안의 요소들을 column(세로)로 정렬해달라는 뜻, 기본값은 row(가로)임.
-    7. align-items: center;
-        가로 방향으로 가운데 정렬
-    8. justify-content 
-        css 에서 쓰는 정렬 관련 명령어. display:felx; 와 세트로 쓰임.
-    9. height:100vh;
-        높이를 viewport height 의 100%로 맞추겠다는 뜻
-    10.overflow : hidden ; 
-        스크롤바가 안생기도록 화면 여백을 숨겨주는 기능. scroll 로 설정하면 항상 스크롤바가 뜸.
-    11. margin 
-        아까 100vh 로 맞췄는데 margin 이 남을수도 있으니 0으로 조정.
-    12. css 주석은 /* 로 씀
-    13. css파일을 만들때는 <script> 태그 떼고 옮기기
-    14. <link rel"style sheet" href" __.css">로 html 삽입
-    */
+        
+        /*
+        1. cursor
+            커서의 모양을 변경할 수 있음. pointer 는 손가락 모양으로 '여기를 클릭할 수 있다'의 의미를 가짐.
+        2. border-radius 
+            border 의 R 값임. 모서리 둥글게~
+        3. position : fixed;
+            해당 요소를 스크롤을해도 고정되게 할 수 있음.
+        4. top rigth left botton : ;
+            해당 지점에서 얼마나 거리를 둘 것인가?
+        5. letter-spacing :;
+            자간 설정, normal 이 기본값
+        6. box-shadow : 가로 세로 흐림값 색상
+            4가지 속성을 조절할 수 있음. 흐림값은 선택! 가로세로는 값이 0이라도 0이라 적어줘야함.
+        7. z-index
+            레이어의 선후 관계 100이면 가장 앞으로 설정된 편. 
+            보통 10 단위로 조정. position 값이 선행되어야 작동함.
+            스크롤해서 다른 요소들과 겹칠 때 위로 보이게끔 설정한 것임.
+        8. :hover, :focus , :active 
+            고정된 키워드, 브라우저가 자동으로 감지해서 적용하는 특수상태(pseudo-class)
+            hover 마우스를 올렸을 때
+            focus 클릭해서 선택되었을 때
+            active 클릭 누르는 순간
+        9. ::after ::before
+            HTML 에 실제로 없는 가짜 요소를 css로 붙여서 꾸미는 기능
+            즉. html 에 새로운 <div> 를 만들지 않고도 css로 덧붙일 수 있는 상자나 장식
+            content 속성이 꼭 필요함!!
+            => 가짜 요소를 화면에 만들겠다는 신호 ' ' 가 비어있다는 것은 글자를 안넣겠다는 의미
+            '' 안에 글자도 넣을 수 있음
+        */
